@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <button (click)="getFriends('')">Friend List 1</button>
+        <button (click)="getFriends('2')">Friend List 2</button>
+    </div>
+    <h4 *ngIf="loading">Loading...</h4>
+    <div *ngIf="!loading" class="container">
+        <div *ngFor="let friend of friends" class="box" [style.background]="friend.hasCam ? 'mediumspringgreen' : ''">
+            <div><input [value]="friend.email" (focus)="$event.target.select()" /></div>
+            <div class="message">{{friend.msg}}</div>
+            <div class="message">{{friend.age}}-{{friend.province}}</div>
+        </div>
+    </div>
+</div>
